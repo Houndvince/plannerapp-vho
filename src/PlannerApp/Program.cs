@@ -26,8 +26,9 @@ namespace PlannerApp
                             .CreateClient("PlannerApp.Api"));
 
             builder.Services.AddMudServices();
-
             builder.Services.AddBlazoredLocalStorage();
+            builder.Services.AddAuthorizationCore();
+            builder.Services.AddScoped<JwtAuthenticationStateProvider, JwtAuthenticationStateProvider>();
 
             await builder.Build().RunAsync();
         }
